@@ -1,35 +1,32 @@
 public class MyMain {
-    // Print out a 2D int array
-    public static void print2DArray(int[][] mat) {
-        for (int row = 0; row < mat.length; row++) 
-        {
-            for (int col = 0; col < mat[0].length; col++)
-            {
-                System.out.print(mat[row][col] + " ");
-            }
-            System.out.println();
-        }
+    // This method returns true/false if there 
+    // was a boat the specified coordinates. This
+    // method also prints out an appropriate message
+    public static boolean hit(boolean[][] board, int row, int col) { 
+        // YOUR CODE HERE
+        return false;
     }
 
-    // Print out a 2D int array, but print it out as a "triangle"
-    public static void printTriangle(int[][] triangle) {
-        for (int row = 0; row < triangle.length; row++) 
-        {
-            for (int col = 0; col <= row; col++)
-            {
-                System.out.print(triangle[row][col] + " ");
-            }
-            System.out.println();
-        }
+
+    // Places a boat onto the board
+    // The top-left piece of the board is located at (row, col)
+    // The remaining pieces are placed in the direction given
+    // by the direction input
+    public static boolean[][] placeBoat(boolean[][] board, String direction, int boatLength, int row, int col) { 
+        // YOUR CODE HERE
+        return board;
+    }
+
+    // Returns true if the every row in the 2D array
+    // is in both alphabetical order and in order of 
+    // increasing length
+    // You may assume that all Strings are lowercase 
+    public static boolean inOrder(String[][] words) { 
+        // YOUR CODE HERE
+        return false;
     }
 
     public static void main(String[] args) {
-        // Code to test Pascal's Triangle
-        print2DArray(Pascal.pascalTriangle(3));
-        printTriangle(Pascal.pascalTriangle(4));
-        printTriangle(Pascal.pascalTriangle(5));
-
-        // Code to play Chomp
-        // Chomp.play();
+        // You can test your code here
     }
 }

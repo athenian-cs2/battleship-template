@@ -7,25 +7,49 @@ import java.util.Arrays;
 public class MyTests {
 
     @Test
-    public void testPascal() {
-        String answer = "[[1, 0, 0, 0, 0], [1, 1, 0, 0, 0], [1, 2, 1, 0, 0], [1, 3, 3, 1, 0], [1, 4, 6, 4, 1]]";
+    public void testHit() {
+        boolean[][] board = { {false, false, false, false, false},
+                              {false, false, false, false, false},
+                              {false, true, true, true, false},
+                              {false, false, false, false, false},
+                              {false, false, false, false, false}};
 
-        assertEquals(answer, Arrays.deepToString(Pascal.pascalTriangle(5)), "The expected output for a Pascal Triangle of height 5 should be: " + answer);
+        assertEquals(false, MyMain.hit(board, 1, 3), "The expected output for whether there is a hit at (1, 3) of boolean[][] \nboard = { {false, false, false, false, false}, \n       {false, false, false, false, false},\n       {false, true, true, true, false},\n       {false, false, false, false, false},\n       {false, false, false, false, false} } should be: false");
+
+
+        assertEquals(true, MyMain.hit(board, 2, 2), "The expected output for whether there is a hit at (2, 2) of boolean[][] \nboard = { {false, false, false, false, false}, \n       {false, false, false, false, false},\n       {false, true, true, true, false},\n       {false, false, false, false, false},\n       {false, false, false, false, false} } should be: true");    
     }
 
     @Test
-    public void testChomp() {
-        char[][] board = new char[4][7];
-        for (int row = 0; row < board.length; row++)
-        {
-            for (int col = 0; col < board[0].length; col++)
-            {
-                board[row][col] = '*';
-            }
-        }
+    public void testPlaceBoard() {
+        boolean[][] board = { {false, false, false, false, false},
+                            {false, false, false, false, false},
+                            {false, false, false, false, false},
+                            {false, false, false, false, false},
+                            {false, false, false, false, false}};
 
-        assertEquals(false, Chomp.eat(board, 5, 5), "Trying to eat (5, 5) should return false due to it being out of bounds");
-        assertEquals(true, Chomp.eat(board, 3, 0), "Eating (3, 0) should return true because it is a valid move");
-        assertEquals(false, Chomp.eat(board, 3, 0), "Eating (3, 0) should return false if (3, 0) has already been eaten");
+        board = MyMain.placeBoat(board, "right", 3, 0, 0);
+
+        String answer1 = "[[true, true, true, false, false], [false, false, false, false, false], [false, false, false, false, false], [false, false, false, false, false], [false, false, false, false, false]]";
+
+        assertEquals(answer1, Arrays.deepToString(board), "Direction = \"right\", boatLength = 3, row = 0, col = 0, and \nboard = { {false, false, false, false, false}, \n       {false, false, false, false, false},\n       {false, true, true, true, false},\n       {false, false, false, false, false},\n       {false, false, false, false, false} }");
+
+        String answer2 = "[[true, true, true, false, false], [false, false, true, false, false], [false, false, true, false, false], [false, false, true, false, false], [false, false, true, false, false]]";
+
+        board = MyMain.placeBoat(board, "down",4, 1, 2);
+
+        assertEquals(answer2, Arrays.deepToString(board), "Direction = \"right\", boatLength = 3, row = 0, col = 0, and \nboard = { {true, true, true, false, false}, \n       {false, false, false, false, false},\n       {false, true, true, true, false},\n       {false, false, false, false, false},\n       {false, false, false, false, false} }");
+    }
+
+    @Test
+    public void testInOrder() {
+        String[][] m1 = { {"anchor", "boating", "catamaran"},
+                          {"boat", "cruise", "fishing"} };
+
+        String[][] m2 = { {"galleon", "helmsman"},
+                          {"anchor", "boat"} };
+
+        assertEquals(true, MyMain.inOrder(m1), "First example in readme should be true");
+        assertEquals(false, MyMain.inOrder(m2), "Second example in readme should be false");
     }
 }
