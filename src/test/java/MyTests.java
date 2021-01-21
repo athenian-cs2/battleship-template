@@ -38,7 +38,7 @@ public class MyTests {
 
         board = MyMain.placeBoat(board, "down",4, 1, 2);
 
-        assertEquals(answer2, Arrays.deepToString(board), "Direction = \"right\", boatLength = 3, row = 0, col = 0, and \nboard = { {true, true, true, false, false}, \n       {false, false, false, false, false},\n       {false, true, true, true, false},\n       {false, false, false, false, false},\n       {false, false, false, false, false} }");
+        assertEquals(answer2, Arrays.deepToString(board), "Direction = \"down\", boatLength = 4, row = 1, col = 2, and \nboard = { {true, true, true, false, false}, \n       {false, false, false, false, false},\n       {false, true, true, true, false},\n       {false, false, false, false, false},\n       {false, false, false, false, false} }");
     }
 
     @Test
